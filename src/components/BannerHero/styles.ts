@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
-export const ImageBanner = styled.div`
+export const ImageBanner = styled.section`
   width: 100%;
   height: 62.2rem;
   background-image: url('/Images/BannerHero.png');
   background-position: center center;
+  /* background-size: cover; */
   object-fit: cover;
 
   margin-top: 1.8rem;
