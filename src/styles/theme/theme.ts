@@ -19,6 +19,6 @@ export const Theme = {
   },
   font: {
     poppins: 'Poppins, sans-serif',
-    Montserrat: 'Montserrat, sans-serif',
+    montserrat: 'Montserrat, sans-serif',
   },
 }
