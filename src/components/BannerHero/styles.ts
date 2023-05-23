@@ -5,6 +5,7 @@ export const ImageBanner = styled.section`
   height: 62.2rem;
   background-image: url('/Images/BannerHero.png');
   background-position: center center;
+  background-repeat: no-repeat;
   /* background-size: cover; */
   object-fit: cover;
 
