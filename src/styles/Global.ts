@@ -11,6 +11,10 @@ export default createGlobalStyle`
         font-size: 62.5%;
     }
 
+    body {
+        font-family: ${({ theme }) => theme.font.poppins};
+    }
+
 `
 export const Container = styled.div`
   max-width: 1300px;
