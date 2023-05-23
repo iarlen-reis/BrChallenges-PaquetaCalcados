@@ -7,23 +7,21 @@ export const FemaleSectionStyled = styled.div`
 `
 export const FemaleImage = styled.div`
   position: relative;
-  width: 62rem;
-  height: 62rem;
-
-  padding: 5rem 7rem;
-
-  border-radius: 3px;
+  width: 62.2rem;
+  height: 66.7rem;
 
   background-image: url('/Images/FemaleImage.png');
+  object-fit: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 
   > div:nth-child(1) {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-
     border-radius: 3px;
+
+    width: 62.2rem;
+    height: 66.7rem;
+
+    margin-left: 2rem;
 
     background: linear-gradient(
       175.96deg,
