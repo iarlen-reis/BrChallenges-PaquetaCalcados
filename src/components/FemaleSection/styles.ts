@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const FemaleSectionStyled = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 10rem 0;
@@ -10,27 +11,15 @@ export const FemaleImage = styled.div`
   width: 62.2rem;
   height: 66.7rem;
 
-  background-image: url('/Images/FemaleImage.png');
-  object-fit: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-
-  > div:nth-child(1) {
-    border-radius: 3px;
-
-    width: 62.2rem;
-    height: 66.7rem;
-
-    margin-left: 2rem;
-
-    background: linear-gradient(
-      175.96deg,
+  background-image: linear-gradient(
+      to right,
       #f57002 3.3%,
       rgba(245, 112, 2, 0) 56.06%
-    );
-
-    transform: rotate(-90deg);
-  }
+    ),
+    url('/Images/FemaleImage.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `
 
 export const DescriptionImage = styled.div`

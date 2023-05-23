@@ -13,7 +13,6 @@ const FemaleSection = () => {
     <Container>
       <FemaleSectionStyled>
         <FemaleImage>
-          <div></div>
           <DescriptionImage>
             <span>CALÇADOS</span>
             <span>FEMININOS</span>

@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 
 export const MaleSectionStyled = styled.div`
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  padding: 0;
+  grid-template-columns: 1fr 1fr;
   padding-bottom: 10rem;
+
+  border-bottom: 1px solid ${({ theme }) => theme.colors.SecundaryColorUnder};
 `
 
 export const DescriptionSection = styled.div`
@@ -52,40 +54,24 @@ export const DescriptionSection = styled.div`
 `
 export const MaleImage = styled.div`
   position: relative;
-  width: 62.25rem;
-  height: 66.8rem;
+  height: 66.7rem;
 
-  background-image: url('/Images/MaleImage.png');
-  object-fit: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-
-  overflow: hidden;
-
-  border-radius: 3rem;
-
-  > div:nth-child(1) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    background: linear-gradient(
-      175.96deg,
+  background-image: linear-gradient(
+      to left,
       #f57002 3.3%,
       rgba(245, 112, 2, 0) 56.06%
-    );
-
-    transform: rotate(90deg);
-  }
+    ),
+    url('/Images/MaleImage.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `
 
 export const DescriptionImage = styled.div`
   position: absolute;
   z-index: 2;
-  right: 3rem;
-  bottom: 7.7rem;
+  right: 4rem;
+  bottom: 7rem;
   width: 30.5rem;
 
   text-align: right;

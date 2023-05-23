@@ -21,7 +21,6 @@ const MaleSection = () => {
           <button>CONFERIR</button>
         </DescriptionSection>
         <MaleImage>
-          <div></div>
           <DescriptionImage>
             <span>CALÇADOS</span>
             <span>MASCULINO</span>
