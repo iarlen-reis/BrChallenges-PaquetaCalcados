@@ -7,6 +7,7 @@ import MaleSection from '../../components/MaleSection/MaleSection'
 import Outlets from '../../components/Outlets/Outlets'
 import FeaturedProducts from '../../components/ FeaturedProducts/ FeaturedProducts'
 import Advertisers from '../../components/Advertisers/Advertisers'
+import ReceiveNews from '../../components/ReceiveNews/ReceiveNews'
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Outlets />
       <FeaturedProducts />
       <Advertisers />
+      <ReceiveNews />
     </>
   )
 }
