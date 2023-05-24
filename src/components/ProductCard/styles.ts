@@ -1,0 +1,131 @@
+import styled from 'styled-components'
+
+export const CardStyled = styled.div`
+  width: 30.7rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  position: relative;
+
+  padding: 2.4rem;
+  margin-bottom: 4rem;
+
+  border-radius: 3px;
+  box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.1);
+`
+interface IFavorite {
+  soldOut: boolean
+}
+export const FavoriteStyled = styled.div<IFavorite>`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  margin-top: ${(props) => (props.soldOut ? '2rem' : '0rem')};
+
+  svg {
+    font-size: 2rem;
+
+    color: ${({ theme }) => theme.colors.PrimaryColorOver};
+
+    cursor: pointer;
+  }
+`
+export const ImageStyled = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+  }
+`
+
+export const DescriptionStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  text-align: left;
+  font-family: ${({ theme }) => theme.font.montserrat};
+
+  p {
+    font-size: 1.4rem;
+    line-height: 1.96rem;
+    font-weight: 500;
+
+    color: ${({ theme }) => theme.colors.SecundaryColor};
+  }
+
+  span {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    font-weight: 700;
+
+    color: ${({ theme }) => theme.colors.SecundaryColor};
+  }
+
+  small {
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    font-weight: 400;
+
+    opacity: 0.6;
+    color: ${({ theme }) => theme.colors.SecundaryColorUnder};
+  }
+`
+
+export const ButtonStyled = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: ${({ theme }) => theme.font.poppins};
+  font-size: 1.8rem;
+  line-height: 110%;
+  font-weight: 700;
+
+  padding: 1.2rem;
+
+  border: none;
+  border-radius: 3px;
+
+  cursor: pointer;
+  transition: 0.5s;
+
+  color: ${({ theme }) => theme.colors.TextWhite};
+  background: ${({ theme }) => theme.colors.LinearTwo};
+
+  :hover {
+    opacity: 0.8;
+  }
+`
+
+export const SoldOutStyled = styled.p`
+  text-align: center;
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  font-family: ${({ theme }) => theme.font.poppins};
+  font-size: 1.4rem;
+  line-height: 1.96rem;
+  font-weight: 700;
+
+  padding: 0.5rem;
+
+  border-radius: 3px 3px 0px 0px;
+
+  color: ${({ theme }) => theme.colors.TextWhite};
+  background: ${({ theme }) => theme.colors.PrimaryColorOver};
+`
+export const NoSoldOut = styled.div`
+  width: 100%;
+  padding: 0.5rem;
+`
