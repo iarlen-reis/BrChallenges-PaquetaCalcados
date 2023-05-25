@@ -24,4 +24,6 @@ export const CustomDots = styled.ul`
       opacity: 1;
     }
   }
+
+  margin-bottom: -2rem;
 `
