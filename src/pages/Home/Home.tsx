@@ -8,6 +8,7 @@ import Outlets from '../../components/Outlets/Outlets'
 import FeaturedProducts from '../../components/ FeaturedProducts/ FeaturedProducts'
 import Advertisers from '../../components/Advertisers/Advertisers'
 import ReceiveNews from '../../components/ReceiveNews/ReceiveNews'
+import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       <FeaturedProducts />
       <Advertisers />
       <ReceiveNews />
+      <Footer />
     </>
   )
 }
