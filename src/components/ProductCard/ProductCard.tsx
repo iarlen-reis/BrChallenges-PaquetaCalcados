@@ -11,6 +11,7 @@ import {
   SoldOutStyled,
   NoSoldOut,
 } from './styles'
+import { formartePrice } from '../../utils/formatePrice'
 
 interface IShoes {
   id: string
@@ -43,8 +44,8 @@ const ProductCard = ({ shoes }: IProductCard) => {
       </ImageStyled>
       <DescriptionStyled>
         <p>{shoes.name}</p>
-        <span>{shoes.price.value}</span>
-        <small>OU 9X R$ 16,66</small>
+        <span>R$ {formartePrice(shoes.price.value)}</span>
+        <small>OU 9X R$ {formartePrice(shoes.price.value / 9)}</small>
       </DescriptionStyled>
       <ButtonStyled soldOut={shoes.soldout}>
         {shoes.soldout ? 'ME AVISE QUANDO CHEGAR' : 'COMPRAR'}
