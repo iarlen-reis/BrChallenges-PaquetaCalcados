@@ -2,8 +2,6 @@
 import React from 'react'
 import { MdFavoriteBorder } from 'react-icons/md' // MdOutlineFavorite
 
-import Sapatilha from '/Images/Sapatilha.png'
-
 import {
   CardStyled,
   FavoriteStyled,
@@ -14,30 +12,43 @@ import {
   NoSoldOut,
 } from './styles'
 
-interface IProductCard {
-  soldOut: boolean
+interface IShoes {
+  id: string
+  name: string
+  price: {
+    value: number
+    discount: number
+  }
+  soldout: boolean
+  image: string
 }
 
-const ProductCard = ({ soldOut }: IProductCard) => {
+interface IProductCard {
+  shoes: IShoes
+}
+
+const ProductCard = ({ shoes }: IProductCard) => {
   return (
     <CardStyled>
-      {soldOut ? (
+      {shoes.soldout ? (
         <SoldOutStyled>PRODUTO ESGOTADO</SoldOutStyled>
       ) : (
         <NoSoldOut />
       )}
-      <FavoriteStyled soldOut={soldOut}>
+      <FavoriteStyled soldOut={shoes.soldout}>
         <MdFavoriteBorder />
       </FavoriteStyled>
       <ImageStyled>
-        <img src={Sapatilha} alt="sapatilha apenas" />
+        <img src={shoes.image} alt={`${shoes.name}`} />
       </ImageStyled>
       <DescriptionStyled>
-        <p>SCARPIN VIZZANO VERDE SALTO ALTO</p>
-        <span>R$ 149,99</span>
+        <p>{shoes.name}</p>
+        <span>{shoes.price.value}</span>
         <small>OU 9X R$ 16,66</small>
       </DescriptionStyled>
-      <ButtonStyled>COMPRAR</ButtonStyled>
+      <ButtonStyled soldOut={shoes.soldout}>
+        {shoes.soldout ? 'ME AVISE QUANDO CHEGAR' : 'COMPRAR'}
+      </ButtonStyled>
     </CardStyled>
   )
 }

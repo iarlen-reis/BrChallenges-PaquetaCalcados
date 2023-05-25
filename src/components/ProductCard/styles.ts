@@ -5,20 +5,20 @@ export const CardStyled = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-
+  justify-content: space-between;
   position: relative;
 
+  gap: 1rem;
+
   padding: 2.4rem;
-  margin-bottom: 4rem;
 
   border-radius: 3px;
   box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.1);
 `
-interface IFavorite {
+interface ISoldOut {
   soldOut: boolean
 }
-export const FavoriteStyled = styled.div<IFavorite>`
+export const FavoriteStyled = styled.div<ISoldOut>`
   width: 100%;
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@ export const FavoriteStyled = styled.div<IFavorite>`
   margin-top: ${(props) => (props.soldOut ? '2rem' : '0rem')};
 
   svg {
-    font-size: 2rem;
+    font-size: 2.5rem;
 
     color: ${({ theme }) => theme.colors.PrimaryColorOver};
 
@@ -41,7 +41,8 @@ export const ImageStyled = styled.div`
   justify-content: center;
 
   img {
-    width: 100%;
+    width: 19.8rem;
+    height: 15.9rem;
   }
 `
 
@@ -79,13 +80,13 @@ export const DescriptionStyled = styled.div`
   }
 `
 
-export const ButtonStyled = styled.button`
+export const ButtonStyled = styled.button<ISoldOut>`
   display: flex;
   align-items: center;
   justify-content: center;
 
   font-family: ${({ theme }) => theme.font.poppins};
-  font-size: 1.8rem;
+  font-size: ${(props) => (props.soldOut ? '1.6rem' : '1.8rem')};
   line-height: 110%;
   font-weight: 700;
 
@@ -98,7 +99,10 @@ export const ButtonStyled = styled.button`
   transition: 0.5s;
 
   color: ${({ theme }) => theme.colors.TextWhite};
-  background: ${({ theme }) => theme.colors.LinearTwo};
+  background: ${(props) =>
+    props.soldOut
+      ? 'rgba(207, 93, 0, 1)'
+      : 'linear-gradient(122.71deg, #F99500 53.34%, #FFCD29 133.06%)'};
 
   :hover {
     opacity: 0.8;
@@ -127,5 +131,5 @@ export const SoldOutStyled = styled.p`
 `
 export const NoSoldOut = styled.div`
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.4rem;
 `

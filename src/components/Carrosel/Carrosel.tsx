@@ -45,16 +45,7 @@ const Carrosel = () => {
 
   return (
     <CassoselStyled>
-      <Slider {...settings}>
-        <ProductCard soldOut={true} />
-        <ProductCard soldOut={false} />
-        <ProductCard soldOut={true} />
-        <ProductCard soldOut={false} />
-        <ProductCard soldOut={true} />
-        <ProductCard soldOut={false} />
-        <ProductCard soldOut={true} />
-        <ProductCard soldOut={false} />
-      </Slider>
+      <Slider {...settings}></Slider>
     </CassoselStyled>
   )
 }
