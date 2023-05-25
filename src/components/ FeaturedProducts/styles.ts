@@ -24,11 +24,13 @@ export const HeaderFeatured = styled.div`
     color: ${({ theme }) => theme.colors.SecundaryColor};
   }
 
-  button {
+  a {
     align-self: flex-end;
     font-family: ${({ theme }) => theme.font.montserrat};
     font-size: 1.8rem;
     line-height: 2.5rem;
+
+    text-decoration: none;
 
     border: none;
     border-bottom: 1px solid ${({ theme }) => theme.colors.PrimaryColorOver};

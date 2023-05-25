@@ -3,6 +3,7 @@ import LogoImage from '../Icons/LogoImage'
 
 import { LogoContainer, LogoStyled, OptionStyled } from './styles'
 import { Container } from '../../styles/Global'
+import { Link } from 'react-router-dom'
 
 import { FiShoppingBag, FiUser } from 'react-icons/fi'
 import { MdFavoriteBorder } from 'react-icons/md'
@@ -12,7 +13,9 @@ const Logo = () => {
     <LogoStyled>
       <Container>
         <LogoContainer>
-          <LogoImage />
+          <Link to={'/'}>
+            <LogoImage />
+          </Link>
         </LogoContainer>
         <OptionStyled>
           <li>
