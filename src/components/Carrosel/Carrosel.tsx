@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import { CassoselStyled, CustomDots } from './styles'
 import ProductCard from '../ProductCard/ProductCard'
+import { useFetchShoes } from '../../hooks/useFetchShoes'
 
 const Carrosel = () => {
   const settings = {
@@ -43,9 +44,17 @@ const Carrosel = () => {
     ],
   }
 
+  const { shoes } = useFetchShoes()
+
+  const onlyTheFirstEight = shoes?.slice(0, 8)
   return (
     <CassoselStyled>
-      <Slider {...settings}></Slider>
+      <Slider {...settings}>
+        {onlyTheFirstEight &&
+          onlyTheFirstEight.map((shoe) => (
+            <ProductCard shoes={shoe} key={shoe.id} />
+          ))}
+      </Slider>
     </CassoselStyled>
   )
 }
