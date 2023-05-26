@@ -90,11 +90,17 @@ const Shoe = () => {
               </TitleStyled>
               <PriceStyled>
                 <div>
-                  <p>R$ {formartePrice(shoe.price.value)}</p>
-                  {shoe.price.discount && (
+                  {shoe.price.discount ? (
+                    <p>R$ {formartePrice(shoe.price.value)}</p>
+                  ) : (
+                    ''
+                  )}
+                  {shoe.price.discount ? (
                     <span>
                       {formateDiscount(shoe.price.discount)}% DE DESCONTO
                     </span>
+                  ) : (
+                    ''
                   )}
                 </div>
                 <div>
