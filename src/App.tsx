@@ -8,6 +8,7 @@ import Shoes from './pages/Shoes/Shoes'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import SubFooter from './components/SubFooter/SubFooter'
+import Shoe from './pages/Shoe/Shoe'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shoes" element={<Shoes />} />
+          <Route path="/shoe/:id" element={<Shoe />} />
         </Routes>
         <Footer />
         <SubFooter />

@@ -54,10 +54,12 @@ export const DescriptionStyled = styled.div`
   text-align: left;
   font-family: ${({ theme }) => theme.font.montserrat};
 
-  p {
+  a {
     font-size: 1.4rem;
     line-height: 1.96rem;
     font-weight: 500;
+
+    text-decoration: none;
 
     color: ${({ theme }) => theme.colors.SecundaryColor};
   }

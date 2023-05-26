@@ -13,6 +13,8 @@ import {
 } from './styles'
 import { formartePrice } from '../../utils/formatePrice'
 
+import { Link } from 'react-router-dom'
+
 interface IShoes {
   id: string
   name: string
@@ -43,7 +45,7 @@ const ProductCard = ({ shoes }: IProductCard) => {
         <img src={shoes.image} alt={`${shoes.name}`} />
       </ImageStyled>
       <DescriptionStyled>
-        <p>{shoes.name}</p>
+        <Link to={`/shoe/${shoes.id}`}>{shoes.name}</Link>
         <span>R$ {formartePrice(shoes.price.value)}</span>
         <small>OU 9X R$ {formartePrice(shoes.price.value / 9)}</small>
       </DescriptionStyled>

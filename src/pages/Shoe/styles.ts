@@ -44,7 +44,7 @@ export const ShoeNavegation = styled.p`
     line-height: 2.5rem;
     font-weight: 500;
 
-    padding-bottom: 0.1rem;
+    padding-bottom: 0;
     border-bottom: 1px solid ${({ theme }) => theme.colors.PrimaryColorOver};
 
     color: ${({ theme }) => theme.colors.SecundaryColorUnder};
@@ -262,6 +262,8 @@ export const ShoeSizeStyled = styled.div`
     cursor: pointer;
 
     border: 1px solid rgba(0, 0, 0, 0.1);
+
+    opacity: 0.7;
 
     color: ${({ theme }) => theme.colors.SecundaryColorUnder};
   }
