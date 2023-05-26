@@ -121,7 +121,9 @@ const Shoe = () => {
                 </ul>
                 <button>Guia de tamanhos</button>
               </ShoeSizeStyled>
-              <ButtonStyled>COMPRAR</ButtonStyled>
+              <ButtonStyled soldout={shoe.soldout}>
+                {shoe.soldout ? 'ESGOTADO!' : 'COMPRAR'}
+              </ButtonStyled>
             </DescriptionStyled>
           </ProductDetails>
           <ProductAboutStyled>

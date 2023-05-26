@@ -289,8 +289,10 @@ export const ShoeSizeStyled = styled.div`
     background: transparent;
   }
 `
-
-export const ButtonStyled = styled.button`
+interface ISoldOut {
+  soldout: boolean
+}
+export const ButtonStyled = styled.button<ISoldOut>`
   width: 53.8rem;
   display: flex;
   align-items: center;
@@ -308,7 +310,10 @@ export const ButtonStyled = styled.button`
   transition: 0.5s;
 
   color: ${({ theme }) => theme.colors.TextWhite};
-  background: ${({ theme }) => theme.colors.LinearTwo};
+  background: ${(props) =>
+    props.soldout
+      ? 'rgba(207, 93, 0, 1)'
+      : 'linear-gradient(122.71deg, #F99500 53.34%, #FFCD29 133.06%)'};
 
   :hover {
     cursor: pointer;
