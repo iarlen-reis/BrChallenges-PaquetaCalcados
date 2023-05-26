@@ -1,5 +1,5 @@
 /* eslint-disable import/no-absolute-path */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container } from '../../styles/Global'
 
 import {
@@ -15,6 +15,7 @@ import {
   ButtonStyled,
   ProductAboutStyled,
   MoreShoeStyled,
+  LiStyled,
 } from './styles'
 
 import Pinterest from '/Images/Footer/Pinterest.png'
@@ -35,16 +36,16 @@ import {
 } from '../../utils/formatePrice'
 
 const Shoe = () => {
+  const [shoeSize, setShoeSize] = useState<number>()
   const { shoes } = useFetchShoes()
   const { shoe, getShoe } = useFetchShoe()
   const fourShoes = shoes?.slice(0, 4)
 
   const { id } = useParams()
 
-  window.scrollTo(0, 0)
-
   useEffect(() => {
     if (!id) return
+    window.scrollTo(0, 0)
     getShoe(id!)
   }, [id])
 
@@ -117,13 +118,42 @@ const Shoe = () => {
               <ShoeSizeStyled>
                 <p>Escolha a numeração:</p>
                 <ul>
-                  <li>34</li>
-                  <li>35</li>
-                  <li>36</li>
-                  <li>37</li>
-                  <li>38</li>
-                  <li>39</li>
-                  <li>40</li>
+                  <LiStyled selectedli={shoeSize === 0}>
+                    34 <span></span>
+                  </LiStyled>
+                  <LiStyled
+                    selectedli={shoeSize === 35}
+                    onClick={() => setShoeSize(35)}
+                  >
+                    35
+                  </LiStyled>
+                  <LiStyled selectedli={shoeSize === 36}>
+                    36 <span></span>
+                  </LiStyled>
+                  <LiStyled
+                    selectedli={shoeSize === 37}
+                    onClick={() => setShoeSize(37)}
+                  >
+                    37
+                  </LiStyled>
+                  <LiStyled
+                    selectedli={shoeSize === 38}
+                    onClick={() => setShoeSize(38)}
+                  >
+                    38
+                  </LiStyled>
+                  <LiStyled
+                    selectedli={shoeSize === 39}
+                    onClick={() => setShoeSize(39)}
+                  >
+                    39
+                  </LiStyled>
+                  <LiStyled
+                    selectedli={shoeSize === 40}
+                    onClick={() => setShoeSize(40)}
+                  >
+                    40
+                  </LiStyled>
                 </ul>
                 <button>Guia de tamanhos</button>
               </ShoeSizeStyled>

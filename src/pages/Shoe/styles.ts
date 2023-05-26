@@ -246,32 +246,6 @@ export const ShoeSizeStyled = styled.div`
     list-style: none;
   }
 
-  li {
-    width: 4.7rem;
-    height: 4.7rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 2.2rem;
-    line-height: 3.1rem;
-    font-weight: 500;
-    text-align: center;
-
-    cursor: pointer;
-
-    border: 1px solid rgba(0, 0, 0, 0.1);
-
-    opacity: 0.7;
-
-    color: ${({ theme }) => theme.colors.SecundaryColorUnder};
-  }
-
-  li:nth-child(1),
-  li:nth-child(3) {
-  }
-
   button {
     align-self: flex-start;
 
@@ -289,6 +263,51 @@ export const ShoeSizeStyled = styled.div`
     background: transparent;
   }
 `
+
+interface ILiProps {
+  selectedli: boolean
+}
+
+export const LiStyled = styled.li<ILiProps>`
+  width: 4.7rem;
+  height: 4.7rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2.2rem;
+  line-height: 3.1rem;
+  font-weight: 500;
+  text-align: center;
+
+  cursor: pointer;
+
+  border: 1px solid
+    ${(props) => (props.selectedli ? '#FF8A29' : 'rgba(0, 0, 0, 0.1)')};
+
+  opacity: 0.7;
+
+  color: ${(props) => (props.selectedli ? '#FF8A29' : '#383838')};
+
+  :nth-child(1),
+  :nth-child(3) {
+    position: relative;
+
+    cursor: not-allowed;
+    overflow: hidden;
+
+    span {
+      position: absolute;
+      width: 140%;
+      height: 1px;
+
+      transform: rotate(45deg);
+      background: ${({ theme }) => theme.colors.SecundaryColorUnder};
+    }
+  }
+`
+
 interface ISoldOut {
   soldout: boolean
 }
