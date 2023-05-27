@@ -49,7 +49,10 @@ const Shoe = () => {
 
     const purchase = {
       id: shoe.id,
+      name: shoe.name,
+      image: shoe.image,
       shoeSize,
+      price: shoe.price.valueWithDiscount,
     }
 
     setCartLocalStorage(purchase)
