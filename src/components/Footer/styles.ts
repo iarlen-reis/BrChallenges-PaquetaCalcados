@@ -42,8 +42,13 @@ export const ColumnFooterStyled = styled.ul`
     text-decoration: none;
 
     opacity: 0.6;
+    transition: 0.5s;
 
     color: ${({ theme }) => theme.colors.SecundaryColorUnder};
+
+    :hover {
+      opacity: 1;
+    }
   }
 `
 
@@ -78,8 +83,13 @@ export const SpecialColumnFooterStyled = styled.div`
     text-decoration: none;
 
     opacity: 0.6;
+    transition: 0.5s;
 
     color: ${({ theme }) => theme.colors.SecundaryColorUnder};
+
+    :hover {
+      opacity: 1;
+    }
   }
 `
 
@@ -131,6 +141,15 @@ export const SocialColumnStyled = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
+  }
+
+  svg {
+    cursor: pointer;
+    transition: 0.5s;
+
+    :hover {
+      opacity: 0.5;
+    }
   }
 `
 
