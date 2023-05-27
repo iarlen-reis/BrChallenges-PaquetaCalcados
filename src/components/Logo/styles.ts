@@ -24,7 +24,9 @@ export const OptionStyled = styled.ul`
 
   list-style: none;
 
-  li {
+  li,
+  a {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +35,9 @@ export const OptionStyled = styled.ul`
     font-size: 1.4rem;
     line-height: 2rem;
 
-    gap: 0.5rem;
+    gap: 1.2rem;
+
+    text-decoration: none;
 
     cursor: pointer;
     transition: 0.5s;
@@ -45,7 +49,25 @@ export const OptionStyled = styled.ul`
     }
 
     svg {
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
+  }
+
+  span {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    top: -1.4rem;
+    left: 1.9rem;
+
+    height: 1rem;
+    width: 1rem;
+    padding: 1.3rem;
+    border-radius: 50%;
+
+    color: ${({ theme }) => theme.colors.TextWhite};
+    background: ${({ theme }) => theme.colors.LinearTwo};
   }
 `

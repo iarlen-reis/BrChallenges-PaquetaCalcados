@@ -8,7 +8,10 @@ import { Link } from 'react-router-dom'
 import { FiShoppingBag, FiUser } from 'react-icons/fi'
 import { MdFavoriteBorder } from 'react-icons/md'
 
+import { useSetLocalStorage } from '../../hooks/useLocalStorage'
+
 const Logo = () => {
+  const { cartSaved } = useSetLocalStorage()
   return (
     <LogoStyled>
       <Container>
@@ -21,10 +24,11 @@ const Logo = () => {
           <li>
             <MdFavoriteBorder /> Lista de desejos
           </li>
-          <li>
+          <Link to="/cart">
             <FiShoppingBag />
             Sacola
-          </li>
+            {cartSaved && <span>{cartSaved.length}</span>}
+          </Link>
           <li>
             <FiUser />
             Entrar
