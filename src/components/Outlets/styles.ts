@@ -48,9 +48,16 @@ export const UlStyled = styled.ul`
     font-weight: 500;
     line-height: 3.1rem;
 
+    cursor: default;
+    transition: 0.5s;
     opacity: 0.7;
 
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 3px;
+
+    :hover {
+      color: ${({ theme }) => theme.colors.TextWhite};
+      background: ${({ theme }) => theme.colors.LinearTwo};
+    }
   }
 `
