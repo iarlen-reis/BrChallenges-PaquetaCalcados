@@ -26,4 +26,12 @@ export const Advertiserstyled = styled.section`
     justify-content: space-between;
     list-style: none;
   }
+
+  img {
+    transition: 0.5s;
+
+    :hover {
+      transform: scale(1.1);
+    }
+  }
 `
