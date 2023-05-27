@@ -182,3 +182,43 @@ export const RemoveStyled = styled.button`
     color: ${({ theme }) => theme.colors.TextError};
   }
 `
+
+export const NoCartItems = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  font-family: ${({ theme }) => theme.font.montserrat};
+
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+
+  gap: 2rem;
+
+  p {
+    font-size: 4rem;
+    color: ${({ theme }) => theme.colors.SecundaryColor};
+  }
+
+  a {
+    width: 30rem;
+    font-size: 2rem;
+    padding: 2rem 1rem;
+
+    text-align: center;
+    text-decoration: none;
+
+    font-weight: 600;
+
+    border-radius: 1rem;
+
+    transition: 0.5s;
+
+    color: ${({ theme }) => theme.colors.TextWhite};
+    background: ${({ theme }) => theme.colors.LinearTwo};
+
+    :hover {
+      opacity: 0.8;
+    }
+  }
+`

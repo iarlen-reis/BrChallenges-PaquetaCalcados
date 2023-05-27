@@ -12,6 +12,7 @@ import {
   TitleStyled,
   DetailStyled,
   RemoveStyled,
+  NoCartItems,
 } from './styles'
 
 import { FiTrash2 } from 'react-icons/fi'
@@ -29,7 +30,7 @@ const Cart = () => {
         <h1>Sacola de compras</h1>
         <UlStyled>
           <h2>Itens</h2>
-          {cartSaved ? (
+          {cartSaved.length > 0 ? (
             cartSaved.map((cart) => (
               <li key={cart.id}>
                 <img src={cart.image} alt="" />
@@ -62,7 +63,10 @@ const Cart = () => {
               </li>
             ))
           ) : (
-            <p>Sem produtos</p>
+            <NoCartItems>
+              <p>Nenhum item encontrado!</p>
+              <Link to="/shoes">Comprar agora</Link>
+            </NoCartItems>
           )}
         </UlStyled>
       </CartStyled>
