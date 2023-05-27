@@ -69,6 +69,14 @@ export const ImageStyled = styled.div`
     height: 52.1rem;
 
     align-self: center;
+
+    cursor: grabbing;
+
+    transition: 0.5s;
+
+    :hover {
+      transform: scale(1.1);
+    }
   }
 
   > div {
@@ -100,12 +108,21 @@ export const ImageStyled = styled.div`
 
       cursor: pointer;
 
+      transition: 0.5s;
       color: ${({ theme }) => theme.colors.SecundaryColorUnder};
+
+      :hover {
+        transform: scale(1.1);
+
+        color: rgba(0, 0, 0, 0.5);
+      }
     }
 
     img {
       width: 2rem;
       height: 2rem;
+
+      cursor: pointer;
     }
   }
 `
@@ -122,8 +139,14 @@ export const FavoriteStyled = styled.p`
     font-size: 3.5rem;
 
     cursor: pointer;
+    transition: 0.5s;
 
     color: ${({ theme }) => theme.colors.PrimaryColorOver};
+
+    :hover {
+      transform: scale(1.1);
+      color: ${({ theme }) => theme.colors.PrimaryColorUnder};
+    }
   }
 `
 
@@ -288,6 +311,7 @@ export const LiStyled = styled.li<ILiProps>`
 
   opacity: 0.7;
 
+  transition: 0.5s;
   color: ${(props) => (props.selectedli ? '#FF8A29' : '#383838')};
 
   :nth-child(1),
@@ -305,6 +329,10 @@ export const LiStyled = styled.li<ILiProps>`
       transform: rotate(45deg);
       background: ${({ theme }) => theme.colors.SecundaryColorUnder};
     }
+  }
+
+  :hover {
+    background: rgba(0, 0, 0, 0.1);
   }
 `
 
