@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { api } from '../services/api'
+import { formartePrice, formateWithDiscount } from '../utils/formatePrice'
 
 interface IShoe {
   id: string
@@ -7,6 +8,7 @@ interface IShoe {
   price: {
     value: number
     discount: number
+    valueWithDiscount: string
   }
   soldout: boolean
   image: string
@@ -25,9 +27,20 @@ export const useFetchShoe = (): IUseFetchShoe => {
     try {
       const response = await api.get(`/shoe/${id}`)
 
-      const responseData = await response.data
+      const responseData = (await response.data[0]) as IShoe
 
-      setShoe(responseData[0] as IShoe)
+      responseData.price.valueWithDiscount = String(
+        formateWithDiscount(
+          responseData.price.discount,
+          responseData.price.value,
+        ).toFixed(2),
+      )
+
+      responseData.price.value = formartePrice(
+        responseData.price.value,
+      ) as unknown as number
+
+      setShoe(responseData)
     } catch (error) {
       console.log(error)
     }
