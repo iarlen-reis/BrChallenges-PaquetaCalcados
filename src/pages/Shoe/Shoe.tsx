@@ -34,9 +34,11 @@ import {
   formateWithDiscount,
   paceleWithDiscount,
 } from '../../utils/formatePrice'
+import GuildeShoes from '../../components/GuildeShoes/GuildeShoes'
 
 const Shoe = () => {
   const [shoeSize, setShoeSize] = useState<number>()
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const { shoes } = useFetchShoes()
   const { shoe, getShoe } = useFetchShoe()
   const fourShoes = shoes?.slice(0, 4)
@@ -155,7 +157,9 @@ const Shoe = () => {
                     40
                   </LiStyled>
                 </ul>
-                <button>Guia de tamanhos</button>
+                <button onClick={() => setIsOpen(!isOpen)}>
+                  Guia de tamanhos
+                </button>
               </ShoeSizeStyled>
               <ButtonStyled soldout={shoe.soldout}>
                 {shoe.soldout ? 'ESGOTADO!' : 'COMPRAR'}
@@ -175,6 +179,7 @@ const Shoe = () => {
                 ))}
             </ul>
           </MoreShoeStyled>
+          <GuildeShoes isOpen={isOpen} setIsOpen={setIsOpen} />
         </ShoeStyled>
       )}
     </Container>
