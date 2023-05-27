@@ -14,16 +14,13 @@ export const formateWithDiscount = (discount: number, price: number) => {
 
   const priceWithDiscount = price - (price * discountExists) / 100
 
-  if (discount) return priceWithDiscount.toFixed(2)
+  if (discount) return Number(priceWithDiscount.toFixed(2))
 
-  return price.toFixed(2)
+  return Number(price.toFixed(2))
 }
 
-export const paceleWithDiscount = (discount: number, price: number) => {
-  const discountExists = formateDiscount(discount)
+export const paceleWithDiscount = (price: string) => {
+  const parcele = Number(price) / 9
 
-  const priceWithDiscount = price - (price * discountExists) / 100
-
-  const parcele = priceWithDiscount / 9
   return parcele.toFixed(2)
 }
