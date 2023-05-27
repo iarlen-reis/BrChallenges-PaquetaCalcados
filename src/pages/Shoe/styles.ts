@@ -336,10 +336,7 @@ export const LiStyled = styled.li<ILiProps>`
   }
 `
 
-interface ISoldOut {
-  soldout: boolean
-}
-export const ButtonStyled = styled.button<ISoldOut>`
+export const ButtonStyled = styled.button`
   width: 53.8rem;
   display: flex;
   align-items: center;
@@ -357,10 +354,33 @@ export const ButtonStyled = styled.button<ISoldOut>`
   transition: 0.5s;
 
   color: ${({ theme }) => theme.colors.TextWhite};
-  background: ${(props) =>
-    props.soldout
-      ? 'rgba(207, 93, 0, 1)'
-      : 'linear-gradient(122.71deg, #F99500 53.34%, #FFCD29 133.06%)'};
+  background: ${({ theme }) => theme.colors.LinearTwo};
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`
+
+export const ButtonSoldOutStyled = styled.button`
+  width: 53.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.2rem;
+
+  font-family: ${({ theme }) => theme.font.poppins};
+  font-size: 3.36rem;
+  line-height: 3.7rem;
+
+  border: none;
+  border-radius: 5.6px;
+
+  transition: 0.5s;
+
+  color: ${({ theme }) => theme.colors.TextWhite};
+  background: ${({ theme }) => theme.colors.Linear};
 
   :hover {
     cursor: pointer;

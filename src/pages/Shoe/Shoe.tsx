@@ -13,6 +13,7 @@ import {
   PriceStyled,
   ShoeSizeStyled,
   ButtonStyled,
+  ButtonSoldOutStyled,
   ProductAboutStyled,
   MoreShoeStyled,
   LiStyled,
@@ -28,14 +29,9 @@ import ProductCard from '../../components/ProductCard/ProductCard'
 
 import { useFetchShoes } from '../../hooks/useFetchShoes'
 import { useFetchShoe } from '../../hooks/useFetchShoe'
-import {
-  formartePrice,
-  formateDiscount,
-  formateWithDiscount,
-  paceleWithDiscount,
-} from '../../utils/formatePrice'
+import { paceleWithDiscount } from '../../utils/formatePrice'
 import GuildeShoes from '../../components/GuildeShoes/GuildeShoes'
-
+import { useSetLocalStorage } from '../../hooks/useLocalStorage'
 const Shoe = () => {
   const [shoeSize, setShoeSize] = useState<number>()
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -43,7 +39,21 @@ const Shoe = () => {
   const { shoe, getShoe } = useFetchShoe()
   const fourShoes = shoes?.slice(0, 4)
 
+  const { setCartLocalStorage } = useSetLocalStorage()
+
   const { id } = useParams()
+
+  const randleSavePurchase = () => {
+    if (!shoeSize) return
+    if (!shoe) return
+
+    const purchase = {
+      id: shoe.id,
+      shoeSize,
+    }
+
+    setCartLocalStorage(purchase)
+  }
 
   useEffect(() => {
     if (!id) return
@@ -93,27 +103,17 @@ const Shoe = () => {
               </TitleStyled>
               <PriceStyled>
                 <div>
+                  {shoe.price.discount ? <p>R$ {shoe.price.value}</p> : ''}
                   {shoe.price.discount ? (
-                    <p>R$ {formartePrice(shoe.price.value)}</p>
-                  ) : (
-                    ''
-                  )}
-                  {shoe.price.discount ? (
-                    <span>
-                      {formateDiscount(shoe.price.discount)}% DE DESCONTO
-                    </span>
+                    <span>{shoe.price.discount * 100}% DE DESCONTO</span>
                   ) : (
                     ''
                   )}
                 </div>
                 <div>
-                  <span>
-                    R${' '}
-                    {formateWithDiscount(shoe.price.discount, shoe.price.value)}
-                  </span>
+                  <span>R$ {shoe.price.valueWithDiscount}</span>
                   <small>
-                    ou 9x R${' '}
-                    {paceleWithDiscount(shoe.price.discount, shoe.price.value)}
+                    ou 9x R$ {paceleWithDiscount(shoe.price.valueWithDiscount)}
                   </small>
                 </div>
               </PriceStyled>
@@ -161,9 +161,13 @@ const Shoe = () => {
                   Guia de tamanhos
                 </button>
               </ShoeSizeStyled>
-              <ButtonStyled soldout={shoe.soldout}>
-                {shoe.soldout ? 'ESGOTADO!' : 'COMPRAR'}
-              </ButtonStyled>
+              {shoe.soldout ? (
+                <ButtonSoldOutStyled>ESGOTADO</ButtonSoldOutStyled>
+              ) : (
+                <ButtonStyled onClick={randleSavePurchase}>
+                  COMPRAR
+                </ButtonStyled>
+              )}
             </DescriptionStyled>
           </ProductDetails>
           <ProductAboutStyled>
