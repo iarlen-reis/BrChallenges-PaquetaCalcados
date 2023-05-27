@@ -27,7 +27,13 @@ export const UlStyled = styled.ul`
     border: none;
     cursor: pointer;
 
+    transition: 0.5s;
+
     color: ${({ theme }) => theme.colors.SecundaryColorUnder};
     background: transparent;
+
+    :hover {
+      color: ${({ theme }) => theme.colors.PrimaryColor};
+    }
   }
 `

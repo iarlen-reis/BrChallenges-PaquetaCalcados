@@ -36,8 +36,13 @@ export const OptionStyled = styled.ul`
     gap: 0.5rem;
 
     cursor: pointer;
+    transition: 0.5s;
 
     color: ${({ theme }) => theme.colors.SecundaryColorUnder};
+
+    :hover {
+      color: ${({ theme }) => theme.colors.PrimaryColor};
+    }
 
     svg {
       font-size: 3rem;
