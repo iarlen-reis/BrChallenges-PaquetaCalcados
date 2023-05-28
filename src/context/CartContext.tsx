@@ -12,11 +12,13 @@ interface ICart {
   price: string
   image: string
   shoeSize: number
+  amount: number
 }
 
 interface ICartContext {
   cart: ICart[]
   addToCart: (item: ICart) => void
+  removeItemCart: (id: string, shoeSize: number) => void
 }
 
 interface IChildren {
@@ -26,6 +28,7 @@ interface IChildren {
 export const CartContext = createContext<ICartContext>({
   cart: [],
   addToCart: () => {},
+  removeItemCart: () => {},
 })
 
 export const CartProvider = ({ children }: IChildren) => {
@@ -35,18 +38,46 @@ export const CartProvider = ({ children }: IChildren) => {
       : [],
   )
 
-  console.log(cart)
-
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
   }, [cart])
 
   const addToCart = (item: ICart) => {
+    const existingItemIndex = cart.findIndex(
+      (cartItem) =>
+        cartItem.id === item.id && cartItem.shoeSize === item.shoeSize,
+    )
+
+    if (existingItemIndex !== -1) {
+      const updatedCart = [...cart]
+      updatedCart[existingItemIndex].amount += 1
+      setCart(updatedCart)
+      return
+    }
     setCart((prevItems) => [...prevItems, item])
   }
 
+  const removeItemCart = (id: string, shoeSize: number) => {
+    const existingItemIndex = cart.findIndex(
+      (cartItem) => cartItem.id === id && cartItem.shoeSize === shoeSize,
+    )
+
+    if (existingItemIndex !== -1) {
+      const updatedCart = [...cart]
+      const item = updatedCart[existingItemIndex]
+
+      if (item.amount > 1) {
+        item.amount -= 1
+      } else {
+        updatedCart.splice(existingItemIndex, 1)
+      }
+
+      setCart(updatedCart)
+    }
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeItemCart }}>
       {children}
     </CartContext.Provider>
   )
