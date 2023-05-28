@@ -10,7 +10,7 @@ import { Fade } from 'react-awesome-reveal'
 
 const Outlets = () => {
   return (
-    <Fade direction="up" triggerOnce={true} delay={1000}>
+    <Fade direction="up" triggerOnce={true} delay={200}>
       <Container>
         <OutletStyled>
           <OutletLogo>

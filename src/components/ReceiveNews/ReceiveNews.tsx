@@ -15,7 +15,7 @@ import { Fade } from 'react-awesome-reveal'
 
 const ReceiveNews = () => {
   return (
-    <Fade direction="up" triggerOnce={true} delay={500}>
+    <Fade direction="up" triggerOnce={true} delay={200}>
       <ReciveNewStyled>
         <ReciveNewsContainer>
           <DescriptionStyled>

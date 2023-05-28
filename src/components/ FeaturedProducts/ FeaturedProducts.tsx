@@ -10,7 +10,7 @@ import { Fade } from 'react-awesome-reveal'
 
 const FeaturedProducts = () => {
   return (
-    <Fade direction="up" triggerOnce={true} delay={500}>
+    <Fade direction="up" triggerOnce={true} delay={200}>
       <Container>
         <FeaturedStyled>
           <HeaderFeatured>

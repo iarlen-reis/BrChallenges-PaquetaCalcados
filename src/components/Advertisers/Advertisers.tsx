@@ -14,7 +14,7 @@ import { Fade } from 'react-awesome-reveal'
 
 const Advertisers = () => {
   return (
-    <Fade direction="up" triggerOnce={true} delay={500}>
+    <Fade direction="up" triggerOnce={true} delay={200}>
       <Container>
         <Advertiserstyled>
           <h2>AS MELHORES MARCAS ESTÃO AQUI!</h2>

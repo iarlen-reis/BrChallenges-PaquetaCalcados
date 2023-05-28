@@ -30,7 +30,7 @@ import {
 
 const Footer = () => {
   return (
-    <Fade direction="up" triggerOnce={true} delay={500}>
+    <Fade direction="up" triggerOnce={true} delay={200}>
       <FooterStyled>
         <FooterContainer>
           <ColumnFooterStyled>
