@@ -38,7 +38,9 @@ export const useFetchShoe = (): IUseFetchShoe => {
         ).toFixed(2),
       )
 
-      responseData.productCode = uuidv4()
+      responseData.productCode = `${uuidv4().split('-')[0]}-${
+        uuidv4().split('-')[1]
+      }`
 
       responseData.price.value = formartePrice(
         responseData.price.value,
