@@ -16,7 +16,7 @@ const Advertisers = () => {
   return (
     <Fade direction="up" triggerOnce={true} delay={200}>
       <Container>
-        <Advertiserstyled>
+        <Advertiserstyled id="advertisers">
           <h2>AS MELHORES MARCAS ESTÃO AQUI!</h2>
           <ul>
             <li>

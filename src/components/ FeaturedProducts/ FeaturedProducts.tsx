@@ -12,7 +12,7 @@ const FeaturedProducts = () => {
   return (
     <Fade direction="up" triggerOnce={true} delay={200}>
       <Container>
-        <FeaturedStyled>
+        <FeaturedStyled id="featuredProdcuts">
           <HeaderFeatured>
             <h2>DESTAQUES</h2>
             <Link to="/shoes">CONFIRA TUDO</Link>

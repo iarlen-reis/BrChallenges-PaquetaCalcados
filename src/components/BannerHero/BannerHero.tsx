@@ -12,7 +12,7 @@ import { Slide } from 'react-awesome-reveal'
 const BannerHero = () => {
   return (
     <ImageBanner>
-      <BannerContainer>
+      <BannerContainer id="bannerHero">
         <InformationContainer>
           <DescriptionStyled>
             <Slide direction="right" delay={100}>

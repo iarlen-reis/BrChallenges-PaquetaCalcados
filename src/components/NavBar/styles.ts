@@ -17,7 +17,7 @@ export const UlStyled = styled.ul`
 
   list-style: none;
 
-  button {
+  a {
     font-family: ${({ theme }) => theme.font.poppins};
     font-weight: 500;
 

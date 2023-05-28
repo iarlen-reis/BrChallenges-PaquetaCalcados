@@ -1,18 +1,14 @@
 /* eslint-disable import/no-absolute-path */
-import React from 'react'
-
 import OutletsImage from '/Images/Outlets.png'
 import { Container } from '../../styles/Global'
-
 import { OutletStyled, OutletLogo, UlStyled } from './styles'
-
 import { Fade } from 'react-awesome-reveal'
 
 const Outlets = () => {
   return (
     <Fade direction="up" triggerOnce={true} delay={200}>
       <Container>
-        <OutletStyled>
+        <OutletStyled id="outlets">
           <OutletLogo>
             <img src={OutletsImage} alt="Logo da paquetá outlet" />
             <p>

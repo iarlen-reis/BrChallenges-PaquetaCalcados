@@ -15,7 +15,7 @@ const MaleSection = () => {
   return (
     <Fade direction="up" triggerOnce={true} delay={200}>
       <Container>
-        <MaleSectionStyled>
+        <MaleSectionStyled id="maleSection">
           <DescriptionSection>
             <p>
               Tenha em seu guarda roupa sapatos de qualidade e confortáveis,
