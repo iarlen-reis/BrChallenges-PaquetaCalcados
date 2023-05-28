@@ -8,21 +8,24 @@ import FeaturedProducts from '../../components/ FeaturedProducts/ FeaturedProduc
 import Advertisers from '../../components/Advertisers/Advertisers'
 import ReceiveNews from '../../components/ReceiveNews/ReceiveNews'
 
-import Fade from 'react-reveal/Fade'
-
 const Home = () => {
   return (
     <>
-      <Fade bottom>
-        <BannerHero />
-        <Benefits />
-        <FemaleSection />
-        <MaleSection />
-        <Outlets />
-        <FeaturedProducts />
-        <Advertisers />
-        <ReceiveNews />
-      </Fade>
+      <BannerHero />
+
+      <Benefits />
+
+      <FemaleSection />
+
+      <MaleSection />
+
+      <Outlets />
+
+      <FeaturedProducts />
+
+      <Advertisers />
+
+      <ReceiveNews />
     </>
   )
 }

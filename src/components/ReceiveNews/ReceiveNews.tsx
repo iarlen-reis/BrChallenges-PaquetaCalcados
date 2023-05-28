@@ -11,22 +11,26 @@ import Line from '/Images/Line.png'
 import Arrow from '/Images/Arrow.png'
 import ReceiveForm from '../ReceiveForm/ReceiveForm'
 
+import { Fade } from 'react-awesome-reveal'
+
 const ReceiveNews = () => {
   return (
-    <ReciveNewStyled>
-      <ReciveNewsContainer>
-        <DescriptionStyled>
-          <p>
-            SEJA O PRIMEIRO A RECEBER NOSSAS OFERTAS E NOVIDADES EXCLUSIVAS!
-          </p>
-          <div>
-            <img src={Line} alt="" />
-            <img src={Arrow} alt="" />
-          </div>
-        </DescriptionStyled>
-        <ReceiveForm />
-      </ReciveNewsContainer>
-    </ReciveNewStyled>
+    <Fade direction="up" triggerOnce={true} delay={500}>
+      <ReciveNewStyled>
+        <ReciveNewsContainer>
+          <DescriptionStyled>
+            <p>
+              SEJA O PRIMEIRO A RECEBER NOSSAS OFERTAS E NOVIDADES EXCLUSIVAS!
+            </p>
+            <div>
+              <img src={Line} alt="" />
+              <img src={Arrow} alt="" />
+            </div>
+          </DescriptionStyled>
+          <ReceiveForm />
+        </ReciveNewsContainer>
+      </ReciveNewStyled>
+    </Fade>
   )
 }
 

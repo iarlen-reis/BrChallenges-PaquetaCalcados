@@ -10,27 +10,31 @@ import Dumond from '/Images/Dumond.png'
 
 import { Advertiserstyled } from './styles'
 
+import { Fade } from 'react-awesome-reveal'
+
 const Advertisers = () => {
   return (
-    <Container>
-      <Advertiserstyled>
-        <h2>AS MELHORES MARCAS ESTÃO AQUI!</h2>
-        <ul>
-          <li>
-            <img src={Adidas} alt="Logo da marca Adidas" />
-          </li>
-          <li>
-            <img src={ViaMarte} alt="Logo da marca ViaMarte" />
-          </li>
-          <li>
-            <img src={Bebece} alt="Logo da marca Bebecê" />
-          </li>
-          <li>
-            <img src={Dumond} alt="Logo da marca Dumond" />
-          </li>
-        </ul>
-      </Advertiserstyled>
-    </Container>
+    <Fade direction="up" triggerOnce={true} delay={500}>
+      <Container>
+        <Advertiserstyled>
+          <h2>AS MELHORES MARCAS ESTÃO AQUI!</h2>
+          <ul>
+            <li>
+              <img src={Adidas} alt="Logo da marca Adidas" />
+            </li>
+            <li>
+              <img src={ViaMarte} alt="Logo da marca ViaMarte" />
+            </li>
+            <li>
+              <img src={Bebece} alt="Logo da marca Bebecê" />
+            </li>
+            <li>
+              <img src={Dumond} alt="Logo da marca Dumond" />
+            </li>
+          </ul>
+        </Advertiserstyled>
+      </Container>
+    </Fade>
   )
 }
 
