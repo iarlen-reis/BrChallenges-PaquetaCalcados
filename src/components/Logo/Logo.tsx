@@ -1,4 +1,3 @@
-import React from 'react'
 import LogoImage from '../Icons/LogoImage'
 
 import { LogoContainer, LogoStyled, OptionStyled } from './styles'
@@ -8,10 +7,10 @@ import { Link } from 'react-router-dom'
 import { FiShoppingBag, FiUser } from 'react-icons/fi'
 import { MdFavoriteBorder } from 'react-icons/md'
 
-import { useSetLocalStorage } from '../../hooks/useLocalStorage'
+import { useCartContext } from '../../context/CartContext'
 
 const Logo = () => {
-  const { cartSaved } = useSetLocalStorage()
+  const { cart } = useCartContext()
   return (
     <LogoStyled>
       <Container>
@@ -27,7 +26,7 @@ const Logo = () => {
           <Link to="/cart">
             <FiShoppingBag />
             Sacola
-            {cartSaved && <span>{cartSaved.length}</span>}
+            <span>{cart.length}</span>
           </Link>
           <li>
             <FiUser />

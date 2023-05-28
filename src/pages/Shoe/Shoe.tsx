@@ -31,7 +31,7 @@ import { useFetchShoes } from '../../hooks/useFetchShoes'
 import { useFetchShoe } from '../../hooks/useFetchShoe'
 import { paceleWithDiscount } from '../../utils/formatePrice'
 import GuildeShoes from '../../components/GuildeShoes/GuildeShoes'
-import { useSetLocalStorage } from '../../hooks/useLocalStorage'
+import { useCartContext } from '../../context/CartContext'
 const Shoe = () => {
   const [shoeSize, setShoeSize] = useState<number>()
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -39,7 +39,7 @@ const Shoe = () => {
   const { shoe, getShoe } = useFetchShoe()
   const fourShoes = shoes?.slice(0, 4)
 
-  const { setCartLocalStorage } = useSetLocalStorage()
+  const { addToCart } = useCartContext()
 
   const { id } = useParams()
 
@@ -55,7 +55,7 @@ const Shoe = () => {
       price: shoe.price.valueWithDiscount,
     }
 
-    setCartLocalStorage(purchase)
+    addToCart(purchase)
   }
 
   useEffect(() => {

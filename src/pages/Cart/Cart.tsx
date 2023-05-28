@@ -17,10 +17,10 @@ import {
 
 import { FiTrash2 } from 'react-icons/fi'
 
-import { useSetLocalStorage } from '../../hooks/useLocalStorage'
+import { useCartContext } from '../../context/CartContext'
 
 const Cart = () => {
-  const { cartSaved } = useSetLocalStorage()
+  const { cart } = useCartContext()
   return (
     <Container>
       <CartStyled>
@@ -30,8 +30,8 @@ const Cart = () => {
         <h1>Sacola de compras</h1>
         <UlStyled>
           <h2>Itens</h2>
-          {cartSaved.length > 0 ? (
-            cartSaved.map((cart) => (
+          {cart.length > 0 ? (
+            cart.map((cart) => (
               <li key={cart.id}>
                 <img src={cart.image} alt="" />
                 <ContentStyled>

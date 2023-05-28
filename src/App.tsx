@@ -10,21 +10,24 @@ import Footer from './components/Footer/Footer'
 import SubFooter from './components/SubFooter/SubFooter'
 import Shoe from './pages/Shoe/Shoe'
 import Cart from './pages/Cart/Cart'
+import { CartProvider } from './context/CartContext'
 
 function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={Theme}>
-        <GlboalStyled />
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/shoes" element={<Shoes />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/shoe/:id" element={<Shoe />} />
-        </Routes>
-        <Footer />
-        <SubFooter />
+        <CartProvider>
+          <GlboalStyled />
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/shoes" element={<Shoes />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/shoe/:id" element={<Shoe />} />
+          </Routes>
+          <Footer />
+          <SubFooter />
+        </CartProvider>
       </ThemeProvider>
     </BrowserRouter>
   )
