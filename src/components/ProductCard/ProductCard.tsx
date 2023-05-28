@@ -13,7 +13,7 @@ import {
 } from './styles'
 import { formartePrice } from '../../utils/formatePrice'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 interface IShoes {
   id: string
@@ -31,6 +31,12 @@ interface IProductCard {
 }
 
 const ProductCard = ({ shoes }: IProductCard) => {
+  const navigate = useNavigate()
+
+  const randleSeeProdcut = (id: string) => {
+    navigate(`/shoe/${id}`)
+  }
+
   return (
     <CardStyled>
       {shoes.soldout ? (
@@ -49,8 +55,11 @@ const ProductCard = ({ shoes }: IProductCard) => {
         <span>R$ {formartePrice(shoes.price.value)}</span>
         <small>OU 9X R$ {formartePrice(shoes.price.value / 9)}</small>
       </DescriptionStyled>
-      <ButtonStyled soldOut={shoes.soldout}>
-        {shoes.soldout ? 'ME AVISE QUANDO CHEGAR' : 'COMPRAR'}
+      <ButtonStyled
+        soldOut={shoes.soldout}
+        onClick={() => randleSeeProdcut(shoes.id)}
+      >
+        {shoes.soldout ? 'ME AVISE QUANDO CHEGAR' : 'DETALHES'}
       </ButtonStyled>
     </CardStyled>
   )
