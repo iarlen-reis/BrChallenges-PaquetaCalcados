@@ -6,6 +6,8 @@ import ProductCard from '../../components/ProductCard/ProductCard'
 
 import { useFetchShoes } from '../../hooks/useFetchShoes'
 
+import { Fade } from 'react-awesome-reveal'
+
 const Shoes = () => {
   const { shoes } = useFetchShoes()
 
@@ -13,7 +15,11 @@ const Shoes = () => {
     <Container>
       <ShoeStyled>
         {shoes &&
-          shoes.map((shoe) => <ProductCard shoes={shoe} key={shoe.id} />)}
+          shoes.map((shoe) => (
+            <Fade direction="up" triggerOnce={true} delay={100} key={shoe.id}>
+              <ProductCard shoes={shoe} key={shoe.id} />
+            </Fade>
+          ))}
       </ShoeStyled>
     </Container>
   )
