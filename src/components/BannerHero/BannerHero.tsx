@@ -7,20 +7,28 @@ import {
   ButtonStyled,
 } from './styles'
 
+import { Slide } from 'react-awesome-reveal'
+
 const BannerHero = () => {
   return (
     <ImageBanner>
       <BannerContainer>
         <InformationContainer>
           <DescriptionStyled>
-            <h1>Tênis Casual</h1>
-            <span>Masculino</span>
+            <Slide direction="right" delay={100}>
+              <h1>Tênis Casual</h1>
+              <span>Masculino</span>
+            </Slide>
           </DescriptionStyled>
           <PriceStyled>
-            <p>A partir de </p>
-            <span>R$ 79,99</span>
+            <Slide direction="right">
+              <p>A partir de </p>
+              <span>R$ 79,99</span>
+            </Slide>
           </PriceStyled>
-          <ButtonStyled>APROVEITE</ButtonStyled>
+          <Slide direction="right" style={{ alignSelf: 'flex-start' }}>
+            <ButtonStyled>APROVEITE</ButtonStyled>
+          </Slide>
         </InformationContainer>
       </BannerContainer>
     </ImageBanner>
