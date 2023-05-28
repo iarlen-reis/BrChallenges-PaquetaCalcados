@@ -53,6 +53,8 @@ const Shoe = () => {
       image: shoe.image,
       shoeSize,
       price: shoe.price.valueWithDiscount,
+      amount: 1,
+      productCode: shoe.productCode,
     }
 
     addToCart(purchase)
@@ -102,7 +104,7 @@ const Shoe = () => {
               </FavoriteStyled>
               <TitleStyled>
                 <h1>{shoe?.name}</h1>
-                <small>Código do produto: 365087-2001152093</small>
+                <small>Código do produto: {shoe.productCode}</small>
               </TitleStyled>
               <PriceStyled>
                 <div>

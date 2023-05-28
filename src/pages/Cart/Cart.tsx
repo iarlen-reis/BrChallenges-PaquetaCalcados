@@ -47,7 +47,7 @@ const Cart = () => {
                   <DescriptionStyled>
                     <TitleStyled>
                       <Link to={`/shoe/${cart.id}`}>{cart.name}</Link>
-                      <span>Código do produto: 365087-2001102972</span>
+                      <span>Código do produto: {cart.productCode}</span>
                     </TitleStyled>
                     <DetailStyled>
                       <p>

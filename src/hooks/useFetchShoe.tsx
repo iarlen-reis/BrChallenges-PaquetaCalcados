@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { api } from '../services/api'
 import { formartePrice, formateWithDiscount } from '../utils/formatePrice'
+import { v4 as uuidv4 } from 'uuid'
 
 interface IShoe {
   id: string
@@ -13,6 +14,7 @@ interface IShoe {
   soldout: boolean
   image: string
   description: string
+  productCode: string
 }
 
 interface IUseFetchShoe {
@@ -35,6 +37,8 @@ export const useFetchShoe = (): IUseFetchShoe => {
           responseData.price.value,
         ).toFixed(2),
       )
+
+      responseData.productCode = uuidv4()
 
       responseData.price.value = formartePrice(
         responseData.price.value,

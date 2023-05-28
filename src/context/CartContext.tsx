@@ -13,6 +13,7 @@ interface ICart {
   image: string
   shoeSize: number
   amount: number
+  productCode: string
 }
 
 interface ICartContext {
