@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import {
   CartStyled,
   NavigationStyled,
+  TitleCartStyled,
   UlStyled,
   ContentStyled,
   DescriptionStyled,
@@ -20,19 +21,27 @@ import { FiTrash2 } from 'react-icons/fi'
 import { useCartContext } from '../../context/CartContext'
 
 const Cart = () => {
-  const { cart } = useCartContext()
+  const { cart, removeItemCart } = useCartContext()
+
+  const total = cart.reduce((acumulador, current) => {
+    return acumulador + Number(current.price) * current.amount
+  }, 0)
+
   return (
     <Container>
       <CartStyled>
         <NavigationStyled>
           <Link to="/">Paquetá</Link> {'>'} <span>Sacola</span>
         </NavigationStyled>
-        <h1>Sacola de compras</h1>
+        <TitleCartStyled>
+          <h1>Sacola de compras</h1>
+          <h2>Valor total: R$: {total.toFixed(2)}</h2>
+        </TitleCartStyled>
         <UlStyled>
           <h2>Itens</h2>
           {cart.length > 0 ? (
-            cart.map((cart) => (
-              <li key={cart.id}>
+            cart.map((cart, index) => (
+              <li key={index}>
                 <img src={cart.image} alt="" />
                 <ContentStyled>
                   <DescriptionStyled>
@@ -48,14 +57,17 @@ const Cart = () => {
                         <span>Cor:</span> Preto
                       </p>
                       <p>
-                        <span>Quantidade:</span> 1
+                        <span>Quantidade:</span> {cart.amount}
                       </p>
                       <p>
-                        <span>Preço:</span> R$ {cart.price}
+                        <span>Preço:</span> R${' '}
+                        {(Number(cart.price) * cart.amount).toFixed(2)}
                       </p>
                     </DetailStyled>
                   </DescriptionStyled>
-                  <RemoveStyled>
+                  <RemoveStyled
+                    onClick={() => removeItemCart(cart.id, cart.shoeSize)}
+                  >
                     <FiTrash2 />
                     Remover
                   </RemoveStyled>

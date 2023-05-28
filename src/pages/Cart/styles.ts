@@ -7,17 +7,6 @@ export const CartStyled = styled.section`
   flex-direction: column;
 
   padding-bottom: 10rem;
-
-  h1 {
-    font-family: ${({ theme }) => theme.font.montserrat};
-    font-size: 3.4rem;
-    line-height: 4.8rem;
-    font-weight: 700;
-
-    margin-bottom: 4rem;
-
-    color: ${({ theme }) => theme.colors.SecundaryColor};
-  }
 `
 
 export const NavigationStyled = styled.p`
@@ -43,6 +32,33 @@ export const NavigationStyled = styled.p`
   }
 
   span {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.PrimaryColor};
+  }
+`
+
+export const TitleCartStyled = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin-bottom: 4rem;
+
+  font-family: ${({ theme }) => theme.font.montserrat};
+  color: ${({ theme }) => theme.colors.SecundaryColor};
+
+  h1 {
+    font-size: 3.4rem;
+    line-height: 4.8rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    font-weight: 700;
+    width: fit-content;
+    height: fit-content;
+
     border-bottom: 1px solid ${({ theme }) => theme.colors.PrimaryColor};
   }
 `
