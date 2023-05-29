@@ -11,6 +11,7 @@ import SubFooter from './components/SubFooter/SubFooter'
 import Shoe from './pages/Shoe/Shoe'
 import Cart from './pages/Cart/Cart'
 import { CartProvider } from './context/CartContext'
+import { FavoriteProvider } from './context/FavoriteContext'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -20,18 +21,20 @@ function App() {
     <BrowserRouter>
       <ThemeProvider theme={Theme}>
         <ToastContainer style={{ fontSize: '1.8rem' }} />
-        <CartProvider>
-          <GlboalStyled />
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/shoes" element={<Shoes />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/shoe/:id" element={<Shoe />} />
-          </Routes>
-          <Footer />
-          <SubFooter />
-        </CartProvider>
+        <FavoriteProvider>
+          <CartProvider>
+            <GlboalStyled />
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/shoes" element={<Shoes />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/shoe/:id" element={<Shoe />} />
+            </Routes>
+            <Footer />
+            <SubFooter />
+          </CartProvider>
+        </FavoriteProvider>
       </ThemeProvider>
     </BrowserRouter>
   )
