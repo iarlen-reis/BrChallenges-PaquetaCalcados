@@ -21,7 +21,7 @@ import {
 
 import Pinterest from '/Images/Footer/Pinterest.png'
 
-import { MdFavoriteBorder } from 'react-icons/md' // MdOutlineFavorite
+import { MdFavoriteBorder, MdOutlineFavorite } from 'react-icons/md' // MdOutlineFavorite
 
 import { FiInstagram, FiFacebook, FiTwitter, FiYoutube } from 'react-icons/fi'
 import { Link, useParams } from 'react-router-dom'
@@ -32,7 +32,7 @@ import { useFetchShoe } from '../../hooks/useFetchShoe'
 import { paceleWithDiscount } from '../../utils/formatePrice'
 import GuildeShoes from '../../components/GuildeShoes/GuildeShoes'
 import { useCartContext } from '../../context/CartContext'
-
+import { useFavoriteContext } from '../../context/FavoriteContext'
 import { toast } from 'react-toastify'
 
 const Shoe = () => {
@@ -43,6 +43,7 @@ const Shoe = () => {
   const fourShoes = shoes?.slice(0, 4)
 
   const { addToCart } = useCartContext()
+  const { addToFavorite, favorites } = useFavoriteContext()
 
   const { id } = useParams()
 
@@ -64,11 +65,26 @@ const Shoe = () => {
     toast.success('Produto adicionado ao carrinho com sucesso!')
   }
 
+  const randleSaveFavorite = () => {
+    if (!shoe) return
+
+    const favoriteItem = {
+      id: shoe.id,
+      name: shoe.name,
+      price: shoe.price.valueWithDiscount,
+      image: shoe.image,
+    }
+
+    addToFavorite(favoriteItem)
+  }
+
   useEffect(() => {
     if (!id) return
     window.scrollTo(0, 0)
     getShoe(id!)
   }, [id])
+
+  const FavoriteExists = favorites.find((item) => item.id === shoe?.id)
 
   return (
     <Container>
@@ -103,8 +119,8 @@ const Shoe = () => {
               </div>
             </ImageStyled>
             <DescriptionStyled>
-              <FavoriteStyled>
-                <MdFavoriteBorder />
+              <FavoriteStyled onClick={randleSaveFavorite}>
+                {FavoriteExists ? <MdOutlineFavorite /> : <MdFavoriteBorder />}
               </FavoriteStyled>
               <TitleStyled>
                 <h1>{shoe?.name}</h1>
