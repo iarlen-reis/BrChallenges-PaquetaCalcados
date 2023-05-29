@@ -12,10 +12,14 @@ import Shoe from './pages/Shoe/Shoe'
 import Cart from './pages/Cart/Cart'
 import { CartProvider } from './context/CartContext'
 
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={Theme}>
+        <ToastContainer style={{ fontSize: '1.8rem' }} />
         <CartProvider>
           <GlboalStyled />
           <Header />
