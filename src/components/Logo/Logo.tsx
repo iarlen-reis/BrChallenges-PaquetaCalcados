@@ -8,9 +8,12 @@ import { FiShoppingBag, FiUser } from 'react-icons/fi'
 import { MdFavoriteBorder } from 'react-icons/md'
 
 import { useCartContext } from '../../context/CartContext'
+import { useFavoriteContext } from '../../context/FavoriteContext'
 
 const Logo = () => {
   const { cart } = useCartContext()
+  const { favorites } = useFavoriteContext()
+
   return (
     <LogoStyled>
       <Container>
@@ -20,9 +23,10 @@ const Logo = () => {
           </Link>
         </LogoContainer>
         <OptionStyled>
-          <li>
+          <Link to="/favorites">
             <MdFavoriteBorder /> Lista de desejos
-          </li>
+            <span>{favorites.length}</span>
+          </Link>
           <Link to="/cart">
             <FiShoppingBag />
             Sacola
