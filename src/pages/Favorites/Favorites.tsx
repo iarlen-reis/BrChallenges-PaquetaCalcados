@@ -9,6 +9,7 @@ import {
   UlStyled,
   DescriptionStyled,
   ButtonRemoveStyled,
+  NoFavorite,
 } from './styles'
 
 import { FiTrash2 } from 'react-icons/fi'
@@ -31,28 +32,33 @@ const Favorites = () => {
         <TitleStyled>Seus favoritos</TitleStyled>
         <UlStyled>
           <h2>Favoritos</h2>
-          {favorites.length > 0
-            ? favorites.map((item) => (
-                <li key={item.id}>
-                  <img src={item.image} alt={item.name} />
-                  <DescriptionStyled>
-                    <div>
-                      <h2>{item.name}</h2>
-                      <p>codigo do produto</p>
-                    </div>
-                    <p>
-                      <span>Preço:</span> R$ {item.price}
-                    </p>
-                  </DescriptionStyled>
-                  <ButtonRemoveStyled
-                    onClick={() => randleRemoveToFavorite(item.id)}
-                  >
-                    <FiTrash2 />
-                    Remover
-                  </ButtonRemoveStyled>
-                </li>
-              ))
-            : ''}
+          {favorites.length > 0 ? (
+            favorites.map((item) => (
+              <li key={item.id}>
+                <img src={item.image} alt={item.name} />
+                <DescriptionStyled>
+                  <div>
+                    <h2>{item.name}</h2>
+                    <p>codigo do produto</p>
+                  </div>
+                  <p>
+                    <span>Preço:</span> R$ {item.price}
+                  </p>
+                </DescriptionStyled>
+                <ButtonRemoveStyled
+                  onClick={() => randleRemoveToFavorite(item.id)}
+                >
+                  <FiTrash2 />
+                  Remover
+                </ButtonRemoveStyled>
+              </li>
+            ))
+          ) : (
+            <NoFavorite>
+              <p>Nenhum item encontrado!</p>
+              <Link to="/shoes">Comprar itens</Link>
+            </NoFavorite>
+          )}
         </UlStyled>
       </FavoriteStyled>
     </Container>

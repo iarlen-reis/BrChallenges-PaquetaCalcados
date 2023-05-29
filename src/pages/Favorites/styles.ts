@@ -164,7 +164,7 @@ export const ButtonRemoveStyled = styled.button`
   }
 `
 
-export const NoCartItems = styled.div`
+export const NoFavorite = styled.div`
   display: flex;
   flex-direction: column;
 
