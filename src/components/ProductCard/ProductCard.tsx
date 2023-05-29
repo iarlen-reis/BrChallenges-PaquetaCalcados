@@ -59,7 +59,7 @@ const ProductCard = ({ shoes }: IProductCard) => {
         soldOut={shoes.soldout}
         onClick={() => randleSeeProdcut(shoes.id)}
       >
-        {shoes.soldout ? 'ME AVISE QUANDO CHEGAR' : 'DETALHES'}
+        {shoes.soldout ? 'ME AVISE QUANDO CHEGAR' : 'COMPRAR'}
       </ButtonStyled>
     </CardStyled>
   )
