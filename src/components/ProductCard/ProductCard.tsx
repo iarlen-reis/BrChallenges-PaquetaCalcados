@@ -1,6 +1,6 @@
 /* eslint-disable import/no-absolute-path */
 import React from 'react'
-import { MdFavoriteBorder } from 'react-icons/md' // MdOutlineFavorite
+import { MdFavoriteBorder, MdOutlineFavorite } from 'react-icons/md' // MdOutlineFavorite
 
 import {
   CardStyled,
@@ -14,6 +14,8 @@ import {
 import { formartePrice } from '../../utils/formatePrice'
 
 import { Link, useNavigate } from 'react-router-dom'
+
+import { useFavoriteContext } from '../../context/FavoriteContext'
 
 interface IShoes {
   id: string
@@ -33,9 +35,24 @@ interface IProductCard {
 const ProductCard = ({ shoes }: IProductCard) => {
   const navigate = useNavigate()
 
+  const { addToFavorite, favorites } = useFavoriteContext()
+
   const randleSeeProdcut = (id: string) => {
     navigate(`/shoe/${id}`)
   }
+
+  const randleAddToFavorite = () => {
+    const favorite = {
+      id: shoes.id,
+      name: shoes.name,
+      price: String(shoes.price.value.toFixed(2)),
+      image: shoes.image,
+    }
+
+    addToFavorite(favorite)
+  }
+
+  const favoriteExists = favorites.find((item) => item.id === shoes.id)
 
   return (
     <CardStyled>
@@ -45,7 +62,11 @@ const ProductCard = ({ shoes }: IProductCard) => {
         <NoSoldOut />
       )}
       <FavoriteStyled soldOut={shoes.soldout}>
-        <MdFavoriteBorder />
+        {favoriteExists ? (
+          <MdOutlineFavorite onClick={randleAddToFavorite} />
+        ) : (
+          <MdFavoriteBorder onClick={randleAddToFavorite} />
+        )}
       </FavoriteStyled>
       <ImageStyled>
         <img src={shoes.image} alt={`${shoes.name}`} />
