@@ -20,10 +20,12 @@ interface IShoe {
 interface IUseFetchShoe {
   shoe: IShoe | null
   getShoe: (id: string) => void
+  loading: boolean
 }
 
 export const useFetchShoe = (): IUseFetchShoe => {
   const [shoe, setShoe] = useState<IShoe | null>(null)
+  const [loading, setLoading] = useState<boolean>(true)
 
   const getShoe = async (id: string) => {
     try {
@@ -49,8 +51,10 @@ export const useFetchShoe = (): IUseFetchShoe => {
       setShoe(responseData)
     } catch (error) {
       console.log(error)
+    } finally {
+      setLoading(false)
     }
   }
 
-  return { shoe, getShoe }
+  return { shoe, getShoe, loading }
 }

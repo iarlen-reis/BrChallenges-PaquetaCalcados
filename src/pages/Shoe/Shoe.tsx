@@ -34,12 +34,13 @@ import GuildeShoes from '../../components/GuildeShoes/GuildeShoes'
 import { useCartContext } from '../../context/CartContext'
 import { useFavoriteContext } from '../../context/FavoriteContext'
 import { toast } from 'react-toastify'
+import Loading from '../../components/Loading/Loading'
 
 const Shoe = () => {
   const [shoeSize, setShoeSize] = useState<number>()
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const { shoes } = useFetchShoes()
-  const { shoe, getShoe } = useFetchShoe()
+  const { shoe, getShoe, loading } = useFetchShoe()
   const fourShoes = shoes?.slice(0, 4)
 
   const { addToCart } = useCartContext()
@@ -85,6 +86,8 @@ const Shoe = () => {
   }, [id])
 
   const FavoriteExists = favorites.find((item) => item.id === shoe?.id)
+
+  if (loading) return <Loading />
 
   return (
     <Container>
