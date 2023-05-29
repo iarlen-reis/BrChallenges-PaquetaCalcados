@@ -15,6 +15,7 @@ import { FavoriteProvider } from './context/FavoriteContext'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Favorites from './pages/Favorites/Favorites'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/shoes" element={<Shoes />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/favorites" element={<Favorites />} />
               <Route path="/shoe/:id" element={<Shoe />} />
             </Routes>
             <Footer />
