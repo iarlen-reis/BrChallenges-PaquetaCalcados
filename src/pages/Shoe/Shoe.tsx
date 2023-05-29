@@ -32,6 +32,9 @@ import { useFetchShoe } from '../../hooks/useFetchShoe'
 import { paceleWithDiscount } from '../../utils/formatePrice'
 import GuildeShoes from '../../components/GuildeShoes/GuildeShoes'
 import { useCartContext } from '../../context/CartContext'
+
+import { toast } from 'react-toastify'
+
 const Shoe = () => {
   const [shoeSize, setShoeSize] = useState<number>()
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -44,7 +47,7 @@ const Shoe = () => {
   const { id } = useParams()
 
   const randleSavePurchase = () => {
-    if (!shoeSize) return
+    if (!shoeSize) return toast.error('Selecione um tamanho por favor!')
     if (!shoe) return
 
     const purchase = {
@@ -58,6 +61,7 @@ const Shoe = () => {
     }
 
     addToCart(purchase)
+    toast.success('Produto adicionado ao carrinho com sucesso!')
   }
 
   useEffect(() => {
