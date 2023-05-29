@@ -14,10 +14,12 @@ interface IShoes {
 
 interface UseFeatchShoes {
   shoes: IShoes[] | null
+  loading: boolean
 }
 
 export const useFetchShoes = (): UseFeatchShoes => {
   const [shoes, setShoes] = useState<IShoes[] | null>(null)
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const getShoes = async () => {
@@ -29,10 +31,12 @@ export const useFetchShoes = (): UseFeatchShoes => {
         setShoes(dataResponse as IShoes[])
       } catch (error) {
         console.log(error)
+      } finally {
+        setLoading(false)
       }
     }
     getShoes()
   }, [])
 
-  return { shoes }
+  return { shoes, loading }
 }

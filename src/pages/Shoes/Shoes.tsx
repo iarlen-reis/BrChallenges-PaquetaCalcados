@@ -7,9 +7,14 @@ import ProductCard from '../../components/ProductCard/ProductCard'
 import { useFetchShoes } from '../../hooks/useFetchShoes'
 
 import { Fade } from 'react-awesome-reveal'
+import Loading from '../../components/Loading/Loading'
 
 const Shoes = () => {
-  const { shoes } = useFetchShoes()
+  const { shoes, loading } = useFetchShoes()
+
+  window.scrollTo(0, 0)
+
+  if (loading) return <Loading />
 
   return (
     <Container>
