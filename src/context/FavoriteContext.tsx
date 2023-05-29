@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from 'react'
+import { toast } from 'react-toastify'
 
 interface IFavorite {
   id: string
@@ -16,6 +17,7 @@ interface IFavorite {
 interface IFavoriteContext {
   favorites: IFavorite[]
   addToFavorite: (item: IFavorite) => void
+  removeToFavorite: (id: string) => void
 }
 
 interface IChildren {
@@ -25,6 +27,7 @@ interface IChildren {
 const FavoriteContext = createContext<IFavoriteContext>({
   favorites: [],
   addToFavorite: () => {},
+  removeToFavorite: () => {},
 })
 
 export const FavoriteProvider = ({ children }: IChildren) => {
@@ -39,11 +42,27 @@ export const FavoriteProvider = ({ children }: IChildren) => {
   }, [favorites])
 
   const addToFavorite = (item: IFavorite) => {
+    const itemExists = favorites.find((shoe) => shoe.id === item.id)
+
+    if (itemExists) {
+      return toast.error('Produto já foi adicionado nos favoritos.')
+    }
+
     setFavorites((prev) => [...prev, item])
+    toast.success('Produto adicionado ao favorito com sucesso!')
+  }
+
+  const removeToFavorite = (id: string) => {
+    const filtered = favorites.filter((item) => item.id !== id)
+
+    setFavorites(filtered)
+    toast.success('Produto removido com sucesso!')
   }
 
   return (
-    <FavoriteContext.Provider value={{ favorites, addToFavorite }}>
+    <FavoriteContext.Provider
+      value={{ favorites, addToFavorite, removeToFavorite }}
+    >
       {children}
     </FavoriteContext.Provider>
   )

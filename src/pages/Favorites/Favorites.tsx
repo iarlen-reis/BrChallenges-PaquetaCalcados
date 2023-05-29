@@ -16,7 +16,11 @@ import { FiTrash2 } from 'react-icons/fi'
 import { useFavoriteContext } from '../../context/FavoriteContext'
 
 const Favorites = () => {
-  const { favorites } = useFavoriteContext()
+  const { favorites, removeToFavorite } = useFavoriteContext()
+
+  const randleRemoveToFavorite = (id: string) => {
+    removeToFavorite(id)
+  }
 
   return (
     <Container>
@@ -40,7 +44,9 @@ const Favorites = () => {
                       <span>Preço:</span> R$ {item.price}
                     </p>
                   </DescriptionStyled>
-                  <ButtonRemoveStyled>
+                  <ButtonRemoveStyled
+                    onClick={() => randleRemoveToFavorite(item.id)}
+                  >
                     <FiTrash2 />
                     Remover
                   </ButtonRemoveStyled>
