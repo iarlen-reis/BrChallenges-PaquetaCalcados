@@ -21,9 +21,16 @@ import { FiTrash2 } from 'react-icons/fi'
 import { useCartContext } from '../../context/CartContext'
 
 import { Slide } from 'react-awesome-reveal'
+import { toast } from 'react-toastify'
 
 const Cart = () => {
   const { cart, removeItemCart } = useCartContext()
+
+  const randleRemoveItem = (id: string, shoeSize: number) => {
+    removeItemCart(id, shoeSize)
+
+    toast.success('Produto removido com sucesso!')
+  }
 
   const total = cart.reduce((acumulador, current) => {
     return acumulador + Number(current.price) * current.amount
@@ -76,7 +83,7 @@ const Cart = () => {
                       </DetailStyled>
                     </DescriptionStyled>
                     <RemoveStyled
-                      onClick={() => removeItemCart(cart.id, cart.shoeSize)}
+                      onClick={() => randleRemoveItem(cart.id, cart.shoeSize)}
                     >
                       <FiTrash2 />
                       Remover
