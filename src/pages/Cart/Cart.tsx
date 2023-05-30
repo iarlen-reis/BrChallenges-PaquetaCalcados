@@ -40,7 +40,7 @@ const Cart = () => {
     <Container>
       <CartStyled>
         <NavigationStyled>
-          <Link to="/">Paquetá</Link> {'>'} <span>Sacola</span>
+          <Link to="/shoes">Paquetá</Link> {'>'} <span>Sacola</span>
         </NavigationStyled>
         <TitleCartStyled>
           <h1>Sacola de compras</h1>

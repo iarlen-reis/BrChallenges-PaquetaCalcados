@@ -7,9 +7,17 @@ import {
   ButtonStyled,
 } from './styles'
 
+import { useNavigate } from 'react-router-dom'
+
 import { Slide } from 'react-awesome-reveal'
 
 const BannerHero = () => {
+  const navigate = useNavigate()
+
+  const randleToShoes = () => {
+    navigate('/shoes')
+  }
+
   return (
     <ImageBanner>
       <BannerContainer id="bannerHero">
@@ -27,7 +35,7 @@ const BannerHero = () => {
             </Slide>
           </PriceStyled>
           <Slide direction="right" style={{ alignSelf: 'flex-start' }}>
-            <ButtonStyled>APROVEITE</ButtonStyled>
+            <ButtonStyled onClick={randleToShoes}>APROVEITE</ButtonStyled>
           </Slide>
         </InformationContainer>
       </BannerContainer>

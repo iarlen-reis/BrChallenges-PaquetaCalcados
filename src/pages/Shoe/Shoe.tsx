@@ -95,7 +95,7 @@ const Shoe = () => {
       {shoe && (
         <ShoeStyled>
           <ShoeNavegation>
-            <Link to="/">Paquetá</Link> <small>{'>'}</small>
+            <Link to="/shoes">Paquetá</Link> <small>{'>'}</small>
             <span>{shoe.name.split(' ')[0]}</span>
           </ShoeNavegation>
           <ProductDetails>
