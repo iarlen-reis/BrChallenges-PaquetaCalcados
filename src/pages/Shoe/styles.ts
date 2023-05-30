@@ -134,7 +134,10 @@ export const DescriptionStyled = styled.div`
   align-self: flex-start;
 `
 
-export const FavoriteStyled = styled.p`
+export const FavoriteStyled = styled.button`
+  background: transparent;
+  border: none;
+  align-self: flex-start;
   svg {
     font-size: 3.5rem;
 
