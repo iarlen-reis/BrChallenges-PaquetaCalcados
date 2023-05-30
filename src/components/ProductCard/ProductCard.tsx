@@ -17,6 +17,8 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { useFavoriteContext } from '../../context/FavoriteContext'
 
+import { v4 as uuidv4 } from 'uuid'
+
 interface IShoes {
   id: string
   name: string
@@ -47,6 +49,7 @@ const ProductCard = ({ shoes }: IProductCard) => {
       name: shoes.name,
       price: String(shoes.price.value.toFixed(2)),
       image: shoes.image,
+      productCode: `${uuidv4().split('-')[0]}-${uuidv4().split('-')[1]}`,
     }
 
     addToFavorite(favorite)

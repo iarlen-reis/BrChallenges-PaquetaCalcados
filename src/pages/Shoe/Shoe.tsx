@@ -74,6 +74,7 @@ const Shoe = () => {
       name: shoe.name,
       price: shoe.price.valueWithDiscount,
       image: shoe.image,
+      productCode: shoe.productCode,
     }
 
     addToFavorite(favoriteItem)

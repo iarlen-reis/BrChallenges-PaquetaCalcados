@@ -12,6 +12,7 @@ interface IFavorite {
   name: string
   price: string
   image: string
+  productCode: string
 }
 
 interface IFavoriteContext {
@@ -45,11 +46,11 @@ export const FavoriteProvider = ({ children }: IChildren) => {
     const itemExists = favorites.find((shoe) => shoe.id === item.id)
 
     if (itemExists) {
-      return toast.error('Produto já foi adicionado nos favoritos.')
+      return toast.error('Produto já foi adicionado aos favoritos.')
     }
 
     setFavorites((prev) => [...prev, item])
-    toast.success('Produto adicionado ao favorito com sucesso!')
+    toast.success('Produto adicionado aos favoritos com sucesso!')
   }
 
   const removeToFavorite = (id: string) => {

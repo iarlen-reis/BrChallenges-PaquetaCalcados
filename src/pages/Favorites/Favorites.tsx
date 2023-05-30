@@ -42,7 +42,7 @@ const Favorites = () => {
                   <DescriptionStyled>
                     <div>
                       <h2>{item.name}</h2>
-                      <p>codigo do produto</p>
+                      <p>Código do produto: {item.productCode}</p>
                     </div>
                     <p>
                       <span>Preço:</span> R$ {item.price}
