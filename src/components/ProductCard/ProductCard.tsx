@@ -71,7 +71,7 @@ const ProductCard = ({ shoes }: IProductCard) => {
           <MdFavoriteBorder onClick={randleAddToFavorite} />
         )}
       </FavoriteStyled>
-      <ImageStyled>
+      <ImageStyled onClick={() => randleSeeProdcut(shoes.id)}>
         <img src={shoes.image} alt={`${shoes.name}`} />
       </ImageStyled>
       <DescriptionStyled>

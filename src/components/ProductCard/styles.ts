@@ -40,6 +40,8 @@ export const ImageStyled = styled.div`
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+
   img {
     width: 19.8rem;
     height: 15.9rem;
