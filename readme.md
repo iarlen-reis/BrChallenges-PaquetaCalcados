@@ -68,4 +68,5 @@ A autora do layout é a design [**Ana Maria Almeida**](https://www.linkedin.com/
 - [x] Animação nas paginas (home, shoes, favorites e cart).
 - [x] Adicionar itens ao carrinho agrupado por tamanho (shoe Size) e ID.
 - [x] Exibindo valor total do carrinho de compras.
+- [ ] Testes unitários.
 - [ ] Responsividade.
