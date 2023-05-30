@@ -110,11 +110,13 @@ export const DescriptionStyled = styled.div`
     gap: 1rem;
   }
 
-  h2 {
+  a {
     width: 100%;
     font-size: 3rem;
     line-height: 4.2rem;
     font-weight: 700;
+
+    text-decoration: none;
 
     border: none;
 

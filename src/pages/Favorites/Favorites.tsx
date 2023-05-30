@@ -41,7 +41,7 @@ const Favorites = () => {
                   <img src={item.image} alt={item.name} />
                   <DescriptionStyled>
                     <div>
-                      <h2>{item.name}</h2>
+                      <Link to={`/shoe/${item.id}`}>{item.name}</Link>
                       <p>Código do produto: {item.productCode}</p>
                     </div>
                     <p>
