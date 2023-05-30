@@ -7,10 +7,13 @@ import Outlets from '../../components/Outlets/Outlets'
 import FeaturedProducts from '../../components/ FeaturedProducts/ FeaturedProducts'
 import Advertisers from '../../components/Advertisers/Advertisers'
 import ReceiveNews from '../../components/ReceiveNews/ReceiveNews'
+import BackToTop from '../../components/BackToTop/BackToTop'
+
+import { HomeStyled } from './styles'
 
 const Home = () => {
   return (
-    <>
+    <HomeStyled>
       <BannerHero />
 
       <Benefits />
@@ -26,7 +29,9 @@ const Home = () => {
       <Advertisers />
 
       <ReceiveNews />
-    </>
+
+      <BackToTop />
+    </HomeStyled>
   )
 }
 
