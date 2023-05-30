@@ -64,12 +64,8 @@ const ProductCard = ({ shoes }: IProductCard) => {
       ) : (
         <NoSoldOut />
       )}
-      <FavoriteStyled soldOut={shoes.soldout}>
-        {favoriteExists ? (
-          <MdOutlineFavorite onClick={randleAddToFavorite} />
-        ) : (
-          <MdFavoriteBorder onClick={randleAddToFavorite} />
-        )}
+      <FavoriteStyled soldOut={shoes.soldout} onClick={randleAddToFavorite}>
+        {favoriteExists ? <MdOutlineFavorite /> : <MdFavoriteBorder />}
       </FavoriteStyled>
       <ImageStyled onClick={() => randleSeeProdcut(shoes.id)}>
         <img src={shoes.image} alt={`${shoes.name}`} />

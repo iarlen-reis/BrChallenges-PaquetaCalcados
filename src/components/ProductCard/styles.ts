@@ -18,11 +18,14 @@ export const CardStyled = styled.div`
 interface ISoldOut {
   soldOut: boolean
 }
-export const FavoriteStyled = styled.div<ISoldOut>`
+export const FavoriteStyled = styled.button<ISoldOut>`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  border: none;
+  background: transparent;
 
   margin-top: ${(props) => (props.soldOut ? '2rem' : '0rem')};
 
